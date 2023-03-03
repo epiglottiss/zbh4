@@ -28,7 +28,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'javax.persistence:javax.persistence-api:2.2'
 	implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
-	compileOnly('javax.persistence:javax.persistence-api:2.2')
+	implementation 'org.apache.commons:commons-lang3:3.12.0'
 
 	compileOnly 'org.projectlombok:lombok'
 	testImplementation 'com.h2database:h2'
