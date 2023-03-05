@@ -1,6 +1,6 @@
-package com.zerobase.cms.user.domain.model;
+package com.zerobase.cms.domain.model;
 
-import com.zerobase.cms.user.domain.SignUpForm;
+import com.zerobase.cms.domain.SignUpForm;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -34,6 +34,9 @@ public class Customer extends BaseEntity{
     private  String verificationCode;
     private boolean isVerify;
 
+    @Column(columnDefinition = "int default 0")
+    private Integer balance;
+
     public static Customer from(SignUpForm form){
         return Customer.builder()
                 .email(form.getEmail().toLowerCase(Locale.ROOT))
@@ -50,6 +53,10 @@ public class Customer extends BaseEntity{
     }
     public void allowVerification(){
         this.isVerify = true;
+    }
+
+    public void changeBalance(Integer changeMoney){
+        this.balance = changeMoney;
     }
 }
 

@@ -12,9 +12,9 @@ public enum ErrorCode {
     ALREADY_VERIFY(HttpStatus.BAD_REQUEST, "이미 등록된 계정입니다."),
     VERIFICATION_CODE_UNMATCH(HttpStatus.BAD_REQUEST, "코드가 다릅니다."),
     EXPIRED_VERIFICATION_CODE(HttpStatus.BAD_REQUEST, "만료된 코드 입니다."),
-    LOGIN_CHECK_FAIL(HttpStatus.BAD_REQUEST, "패스워드 오류");
+    LOGIN_CHECK_FAIL(HttpStatus.BAD_REQUEST, "패스워드 오류"),
 
-
+    NOT_ENOUGH_BALANCE(HttpStatus.BAD_REQUEST, "잔액이 부족합니다."),
     ;
 
     private final HttpStatus httpStatus;
