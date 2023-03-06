@@ -3,6 +3,7 @@ package com.zerobase.cms.order.service;
 import com.zerobase.cms.order.domain.model.Product;
 import com.zerobase.cms.order.domain.model.ProductItem;
 import com.zerobase.cms.order.domain.product.AddProductForm;
+import com.zerobase.cms.order.domain.product.ProductDto;
 import com.zerobase.cms.order.domain.product.UpdateProductForm;
 import com.zerobase.cms.order.domain.product.UpdateProductItemForm;
 import com.zerobase.cms.order.domain.repository.ProductRepository;
@@ -39,5 +40,13 @@ public class ProductService {
             item.setCount(itemForm.getCount());
         }
         return product;
+    }
+
+    @Transactional
+    public void deleteProduct(Long sellerId, Long productId){
+        Product product = productRepository.findBySellerIdAndId(sellerId, productId)
+                .orElseThrow(()->new CustomException(ErrorCode.NOT_FOUND_PRODUCT));
+
+        productRepository.delete(product);
     }
 }
